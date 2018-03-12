@@ -63,12 +63,8 @@ const serve = (path, cache) => express.static(resolve(path), {
 })
 
 app.use(compression({ threshold: 0 }))
-app.use(favicon('./public/logo-48.png'))
 app.use('/dist', serve('./dist', true))
-app.use('/public', serve('./public', true))
-app.use('/manifest.json', serve('./manifest.json', true))
-app.use('/service-worker.js', serve('./dist/service-worker.js'))
-
+// app.use('/public', serve('./public', true))
 // since this app has no user-specific content, every page is micro-cacheable.
 // if your app involves user-specific content, you need to implement custom
 // logic to determine whether a request is cacheable based on its url and
@@ -97,7 +93,7 @@ function render (req, res) {
   }
 
   const context = {
-    title: 'Vue HN 2.0', // default title
+    title: 'Vue Demo', // default title
     url: req.url
   }
   renderer.renderToString(context, (err, html) => {

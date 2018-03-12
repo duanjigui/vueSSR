@@ -1,7 +1,8 @@
 <template>
-    <div>
-    hello world!
-
+    <div id="app">
+        hello world!
+        <hr/>
+        <router-view></router-view>
     </div>
 </template>
 <script>
